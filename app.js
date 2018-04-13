@@ -1,6 +1,5 @@
 var express= require('express');
 var todoController = require('./controllers/todoController');
-
 var app = express();
 
 //set up template engine
@@ -13,5 +12,5 @@ app.use(express.static('./public'));
 todoController(app);
 
 //listen to port
-app.listen(80);
+app.listen(process.env.PORT || 80, ()=>console.log("all okay"));
 console.log('listening localhost');

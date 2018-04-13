@@ -3,6 +3,7 @@ $(document).ready(function(){
   $('form').on('submit', function(){
 
       var item = $('form input');
+      console.log(item);
       var todo = {item: item.val()};
 
       $.ajax({
@@ -17,6 +18,17 @@ $(document).ready(function(){
 
       return false;
 
+  });
+
+  $(".delbutton").on('click',function(){
+    var x = this.id;
+    $.ajax({
+      type:"DELETE",
+      url:"/todo/delete/"+ x,
+      success: function (data) {
+        location.reload();
+        }
+    });
   });
 
   $('li').on('click', function(){

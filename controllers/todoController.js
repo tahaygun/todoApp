@@ -2,7 +2,7 @@ var bodyParser= require('body-parser');
 var mongoose = require('mongoose');
 
 //connect to database
-mongoose.connect('mongodb://root:root@ds131989.mlab.com:31989/todo');
+mongoose.connect('mongodb://localhost/todo');
 
 //create schema
 var todoSchema= new mongoose.Schema({
@@ -44,6 +44,21 @@ module.exports = function(app){
             if(err) throw err;
             res.json(data);
         });
+
+        //old one
+        // data =  data.filter(function(todo){
+        //     return todo.item.replace(/ /g, '-') !== req.params.item;
+        // });
+        // res.json(data);
+    });
+
+    app.delete('/todo/delete/:id', function(req,res){
+
+        Todo.find({_id:req.params.id}).remove(function(err, data){
+            if(err) throw err;
+            res.json(data);
+        });
+       
 
         //old one
         // data =  data.filter(function(todo){

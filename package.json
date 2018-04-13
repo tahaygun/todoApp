@@ -4,10 +4,9 @@
   "description": "to do app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "taha",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
     "ejs": "^2.5.8",
